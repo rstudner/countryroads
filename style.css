@@ -129,8 +129,9 @@ nav {
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex; align-items: flex-end;
-  padding-bottom: 8rem;
+  display: flex; align-items: center;
+  padding-top: 7rem;
+  padding-bottom: 9rem;
   background: var(--forest);
   overflow: hidden;
 }
@@ -912,7 +913,7 @@ footer {
   .seasons-grid { grid-template-columns: 1fr 1fr; }
   .reviews-grid { grid-template-columns: 1fr; }
   h1 { font-size: 2.8rem; }
-  .hero { padding-bottom: 12rem; }
+  .hero { padding-top: 5rem; padding-bottom: 10rem; }
   .checklist { grid-template-columns: 1fr; }
 }
 @media (max-width: 580px) {

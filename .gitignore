@@ -1,0 +1,6 @@
+.wrangler/
+*.png
+check_*.png
+orig_*.png
+original_site.png
+photos/raw/

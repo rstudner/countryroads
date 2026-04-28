@@ -129,8 +129,8 @@ nav {
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex; align-items: center;
-  padding-top: 7rem;
+  display: flex; align-items: flex-start;
+  padding-top: clamp(7rem, 18vh, 14rem);
   padding-bottom: 9rem;
   background: var(--forest);
   overflow: hidden;

@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__resize_page",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__evaluate_script",
+      "Bash(gh auth *)",
+      "Bash(git -C /Users/rogerstudner/countryroads status)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(npx wrangler *)",
+      "Bash(wrangler *)",
+      "mcp__plugin_chrome-devtools-mcp_chrome-devtools__new_page",
+      "Bash(python3 *)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(identify /Users/rogerstudner/countryroads/photos/cabin-master-bedroom.jpg /Users/rogerstudner/countryroads/photos/cabin-kitchen.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerstudner/countryroads/photos/cabin-master-bedroom.jpg /Users/rogerstudner/countryroads/photos/cabin-kitchen.jpg)",
+      "Bash(curl -s -L \"https://l.icdbcdn.com/oh/92946a99-cbf6-4d14-bec1-8a60fffe2975.jpg\" -o 18_full.jpg)",
+      "Bash(curl -s -L \"https://l.icdbcdn.com/oh/16d49604-e8bf-4b45-8310-0a8195460f7a.jpg\" -o 30_full.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight 18_full.jpg 30_full.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerstudner/countryroads/photos/outdoor-firepit.jpg /Users/rogerstudner/countryroads/photos/atv-group-tour.jpg /Users/rogerstudner/countryroads/photos/property-front-porch.jpg)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "firecrawl"
+  ]
+}

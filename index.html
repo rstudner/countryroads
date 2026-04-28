@@ -10,6 +10,7 @@
 <meta name="keywords" content="ATV retreat West Virginia, Hatfield McCoy trails cabin, ATV vacation rental Delbarton WV, Mingo County ATV rental, Devil Anse trail cabin, ATV basecamp West Virginia">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 <script type="application/ld+json">
 {
@@ -27,16 +28,9 @@
     "postalCode": "25670",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 37.7128,
-    "longitude": -82.1786
-  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 37.7128, "longitude": -82.1786 },
   "numberOfRooms": 3,
-  "occupancy": {
-    "@type": "QuantitativeValue",
-    "maxValue": 10
-  },
+  "occupancy": { "@type": "QuantitativeValue", "maxValue": 10 },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Coffee Machine", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Full Kitchen with Cookware", "value": true },
@@ -61,807 +55,18 @@
   ]
 }
 </script>
-
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --forest:   #1a2018;
-    --bark:     #2c2416;
-    --earth:    #4a3728;
-    --rust:     #c4521a;
-    --rust-lt:  #e06930;
-    --gold:     #d4a94a;
-    --gold-lt:  #f0c870;
-    --cream:    #f5f0e8;
-    --warm-white: #faf8f4;
-    --muted:    #8a8070;
-    --text:     #1e1a14;
-    --text-sec: #5a5040;
-    --border:   rgba(74,55,40,0.15);
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans:  'DM Sans', system-ui, sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--warm-white);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem;
-    height: 64px;
-    background: rgba(26,32,24,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: all 0.3s;
-  }
-  .nav-brand {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .nav-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold-lt); }
-  .nav-cta {
-    background: var(--rust);
-    color: #fff !important;
-    padding: 0.45rem 1.2rem;
-    border-radius: 4px;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--rust-lt) !important; color: #fff !important; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; align-items: flex-end;
-    padding-bottom: 8rem;
-    background: var(--forest);
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 60% 30%, rgba(196,82,26,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(26,32,24,0.95) 0%, transparent 70%),
-      linear-gradient(160deg, #0d1210 0%, #1a2a18 40%, #2a3820 100%);
-  }
-  /* Decorative tree silhouette shapes */
-  .hero-bg::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
-    background: linear-gradient(to top, rgba(13,18,16,0.9) 0%, transparent 100%);
-  }
-  .hero-texture {
-    position: absolute; inset: 0; opacity: 0.035;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,1) 2px, rgba(255,255,255,1) 3px),
-      repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(255,255,255,0.5) 4px, rgba(255,255,255,0.5) 5px);
-  }
-  /* Mountain ridge decorative element */
-  .hero-ridge {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 200px;
-    overflow: hidden;
-  }
-  .hero-ridge svg { width: 100%; height: 100%; }
-
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
-    width: 100%;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block; width: 32px; height: 1px;
-    background: var(--gold);
-  }
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.02;
-    color: var(--warm-white);
-    max-width: 800px;
-    margin-bottom: 1.5rem;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--gold-lt);
-  }
-  .hero-desc {
-    color: rgba(245,240,232,0.72);
-    font-size: 1.1rem;
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    line-height: 1.75;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    align-items: center;
-  }
-  .btn-primary {
-    background: var(--rust);
-    color: #fff;
-    padding: 0.9rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--rust-lt); transform: translateY(-1px); }
-  .btn-outline {
-    border: 1px solid rgba(245,240,232,0.35);
-    color: var(--warm-white);
-    padding: 0.9rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.95rem;
-    transition: border-color 0.2s, background 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { border-color: rgba(245,240,232,0.7); background: rgba(245,240,232,0.05); }
-
-  /* Hero stats strip */
-  .hero-stats {
-    position: absolute; bottom: 0; right: 0; left: 0; z-index: 3;
-    background: rgba(13,18,16,0.85);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(212,169,74,0.2);
-  }
-  .stats-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    padding: 0 2.5rem;
-  }
-  .stat-item {
-    padding: 1.4rem 1.5rem 1.4rem 0;
-    border-right: 1px solid rgba(255,255,255,0.07);
-  }
-  .stat-item:last-child { border-right: none; padding-left: 1.5rem; }
-  .stat-item:first-child { padding-left: 0; }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-  .stat-label {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* ── SECTION SHARED ── */
-  section { padding: 6rem 2.5rem; }
-  .inner { max-width: 1200px; margin: 0 auto; }
-  .section-tag {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--rust);
-    margin-bottom: 1rem; display: block;
-  }
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--forest);
-    margin-bottom: 1.2rem;
-  }
-  .lead {
-    font-size: 1.1rem;
-    color: var(--text-sec);
-    max-width: 600px;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    font-weight: 300;
-  }
-
-  /* ── TRAILS SECTION ── */
-  #trails { background: var(--cream); }
-  .trails-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .trail-card {
-    background: var(--forest);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.25s;
-  }
-  .trail-card:hover { background: #243021; }
-  .trail-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; bottom: 0;
-    width: 3px;
-    background: var(--gold);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.3s;
-  }
-  .trail-card:hover::before { transform: scaleY(1); }
-  .trail-distance {
-    font-family: var(--serif);
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--gold-lt);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .trail-name {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--warm-white);
-    margin-bottom: 0.4rem;
-  }
-  .trail-detail {
-    font-size: 0.85rem;
-    color: rgba(245,240,232,0.5);
-  }
-  .trails-note {
-    background: var(--rust);
-    padding: 2.5rem;
-    display: flex; align-items: center; gap: 1.5rem;
-    grid-column: 1 / -1;
-  }
-  .trails-note-icon {
-    font-size: 2rem; flex-shrink: 0;
-  }
-  .trails-note-text {
-    color: rgba(255,255,255,0.92);
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-  .trails-note-text strong { color: #fff; font-weight: 500; }
-
-  /* ── RETREAT SECTION ── */
-  #retreat { background: var(--warm-white); }
-  .retreat-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .retreat-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .feature-item {
-    padding: 1.4rem;
-    background: var(--cream);
-    border-radius: 6px;
-    border: 1px solid var(--border);
-  }
-  .feature-icon {
-    font-size: 1.3rem;
-    margin-bottom: 0.6rem;
-    display: block;
-  }
-  .feature-name {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 0.2rem;
-  }
-  .feature-desc {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-  /* Capacity visual */
-  .capacity-block {
-    background: var(--forest);
-    border-radius: 8px;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  .capacity-row {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 1.2rem;
-  }
-  .capacity-label { color: rgba(255,255,255,0.55); font-size: 0.85rem; }
-  .capacity-val {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-  }
-  .capacity-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.08);
-    margin: 1rem 0;
-  }
-  .bedroom-list { list-style: none; margin-top: 1rem; }
-  .bedroom-list li {
-    display: flex; align-items: center; gap: 0.7rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
-  }
-  .bedroom-list li::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-  .bedroom-list li:last-child { border-bottom: none; }
-
-  /* ── AMENITIES ── */
-  #amenities { background: var(--forest); padding: 6rem 2.5rem; }
-  #amenities h2 { color: var(--warm-white); }
-  #amenities .lead { color: rgba(245,240,232,0.6); }
-  .amenities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .amenity-item {
-    background: rgba(255,255,255,0.03);
-    padding: 1.5rem;
-    display: flex; align-items: center; gap: 0.8rem;
-    transition: background 0.2s;
-  }
-  .amenity-item:hover { background: rgba(255,255,255,0.07); }
-  .amenity-icon { font-size: 1.2rem; flex-shrink: 0; }
-  .amenity-label { font-size: 0.88rem; color: rgba(245,240,232,0.75); font-weight: 400; }
-
-  /* ── TOURS SECTION ── */
-  #tours { background: var(--cream); position: relative; overflow: hidden; }
-  #tours::before {
-    content: '';
-    position: absolute; top: -2px; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--rust), var(--gold), var(--rust));
-  }
-  .tours-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .tours-badge {
-    display: inline-block;
-    background: var(--rust);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.8rem;
-    border-radius: 3px;
-    margin-bottom: 1rem;
-  }
-  .tours-card {
-    background: var(--forest);
-    border-radius: 8px;
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .tours-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--rust), var(--gold));
-  }
-  .tours-card h3 {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--warm-white);
-    margin-bottom: 0.8rem;
-  }
-  .tours-card p {
-    color: rgba(245,240,232,0.65);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  .tours-feature-list { list-style: none; margin-bottom: 2rem; }
-  .tours-feature-list li {
-    display: flex; align-items: flex-start; gap: 0.7rem;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.88rem;
-    color: rgba(245,240,232,0.75);
-  }
-  .tours-feature-list li:last-child { border-bottom: none; }
-  .check { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .btn-gold {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--forest);
-    padding: 0.8rem 1.8rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-  }
-  .btn-gold:hover { background: var(--gold-lt); }
-
-  /* Coverage area */
-  .coverage-area {
-    margin-top: 1.5rem;
-    padding: 1.4rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 6px;
-  }
-  .coverage-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.6rem;
-  }
-  .coverage-tags {
-    display: flex; flex-wrap: wrap; gap: 0.4rem;
-  }
-  .coverage-tag {
-    font-size: 0.78rem;
-    color: rgba(245,240,232,0.55);
-    background: rgba(255,255,255,0.05);
-    padding: 0.25rem 0.7rem;
-    border-radius: 3px;
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  /* ── LOCATION ── */
-  #location { background: var(--warm-white); }
-  .location-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .location-map-placeholder {
-    background: linear-gradient(135deg, #1a2a18, #2a3a20);
-    border-radius: 8px;
-    height: 380px;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .location-map-placeholder::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(196,82,26,0.2) 0%, transparent 60%);
-  }
-  .map-pin {
-    font-size: 2.5rem;
-    position: relative; z-index: 1;
-  }
-  .map-address {
-    font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--gold-lt);
-    text-align: center;
-    position: relative; z-index: 1;
-    line-height: 1.5;
-  }
-  .map-link {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.75);
-    padding: 0.5rem 1.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.05em;
-    position: relative; z-index: 1;
-    transition: background 0.2s;
-  }
-  .map-link:hover { background: rgba(255,255,255,0.18); }
-  .nearby-list { list-style: none; margin-top: 1.5rem; }
-  .nearby-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .nearby-item:last-child { border-bottom: none; }
-  .nearby-name { font-size: 0.9rem; color: var(--text); font-weight: 400; }
-  .nearby-dist {
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--rust);
-  }
-
-  /* ── BOOK ── */
-  #book {
-    background: var(--bark);
-    padding: 7rem 2.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  #book::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(196,82,26,0.25) 0%, transparent 60%);
-  }
-  #book h2 { color: var(--warm-white); position: relative; }
-  #book .lead { color: rgba(245,240,232,0.6); margin: 0 auto 2.5rem; position: relative; }
-  .book-options {
-    display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  .book-pill {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.7);
-    padding: 0.5rem 1.2rem;
-    border-radius: 100px;
-    font-size: 0.82rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .book-pill strong { color: #fff; font-weight: 500; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--forest);
-    padding: 3rem 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
-  }
-  .footer-brand {
-    font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--gold-lt);
-    font-weight: 700;
-  }
-  .footer-meta {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-  }
-  .footer-links {
-    display: flex; gap: 1.5rem; list-style: none;
-  }
-  .footer-links a {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold-lt); }
-
-  /* ── SCROLL ANIMATION ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .trails-grid { grid-template-columns: 1fr; }
-    .retreat-layout, .tours-layout, .location-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    .retreat-features { grid-template-columns: 1fr 1fr; }
-    h1 { font-size: 2.8rem; }
-    .hero { padding-bottom: 12rem; }
-  }
-  @media (max-width: 580px) {
-    .hero-stats { display: none; }
-    .hero { padding-bottom: 4rem; }
-    .retreat-features { grid-template-columns: 1fr; }
-    .stats-inner { grid-template-columns: 1fr 1fr; }
-  }
-
-  /* ── HAMBURGER ── */
-  .nav-toggle {
-    display: none;
-    flex-direction: column; justify-content: center; gap: 5px;
-    width: 36px; height: 36px;
-    background: none; border: none; cursor: pointer; padding: 4px;
-    flex-shrink: 0;
-  }
-  .nav-toggle span {
-    display: block; width: 22px; height: 2px;
-    background: rgba(255,255,255,0.75);
-    transition: transform 0.25s, opacity 0.25s;
-    border-radius: 1px;
-  }
-  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .nav-mobile {
-    display: none;
-    position: fixed; top: 64px; left: 0; right: 0;
-    background: rgba(22,28,20,0.98);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    padding: 0.5rem 1.5rem 1.5rem;
-    z-index: 99;
-    flex-direction: column;
-  }
-  .nav-mobile.open { display: flex; }
-  .nav-mobile a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-  .nav-mobile a:hover { color: var(--gold-lt); }
-  .nav-mobile .mob-cta {
-    margin-top: 1rem;
-    text-align: center;
-    background: var(--rust);
-    padding: 0.85rem 1.5rem;
-    border-radius: 4px;
-    border-bottom: none !important;
-    color: #fff !important;
-    font-weight: 500;
-  }
-  .nav-mobile .mob-cta:hover { background: var(--rust-lt) !important; }
-  @media (max-width: 900px) { .nav-toggle { display: flex; } }
-
-  /* ── GALLERY ── */
-  #gallery { background: var(--cream); }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-  .gallery-item {
-    overflow: hidden; border-radius: 3px;
-    background: #1a2018;
-    aspect-ratio: 4/3; position: relative;
-  }
-  .gallery-item--wide { grid-column: span 2; aspect-ratio: 16/9; }
-  .gallery-item img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-    transition: transform 0.4s;
-  }
-  .gallery-item:hover img { transform: scale(1.04); }
-  /* Placeholder shown when photo not yet loaded */
-  .gallery-item::after {
-    content: attr(data-label);
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    pointer-events: none;
-  }
-  @media (max-width: 700px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-item--wide { grid-column: span 2; aspect-ratio: 16/9; }
-  }
-
-  /* ── AWARDS ── */
-  #awards { background: var(--bark); padding: 5rem 2.5rem; text-align: center; }
-  #awards .section-tag { color: var(--gold); display: flex; justify-content: center; }
-  #awards h2 { color: var(--warm-white); }
-  #awards .lead { color: rgba(245,240,232,0.55); margin: 0 auto 3rem; }
-  .awards-grid {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
-  }
-  .award-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(212,169,74,0.3);
-    border-radius: 8px; padding: 2rem 2.5rem; width: 230px;
-    transition: background 0.25s, border-color 0.25s;
-  }
-  .award-card:hover { background: rgba(212,169,74,0.08); border-color: rgba(212,169,74,0.6); }
-  .award-year {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
-  }
-  .award-badge {
-    font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
-    color: var(--warm-white); line-height: 1.15; margin-bottom: 0.4rem;
-  }
-  .award-source { font-size: 0.75rem; color: rgba(245,240,232,0.4); letter-spacing: 0.04em; }
-  .award-name {
-    font-size: 0.85rem; color: rgba(245,240,232,0.65); margin-top: 0.8rem;
-    padding-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.07);
-  }
-
-  /* ── REVIEWS ── */
-  #reviews { background: var(--warm-white); }
-  .reviews-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-  }
-  .review-card {
-    background: var(--cream); border: 1px solid var(--border);
-    border-radius: 8px; padding: 1.8rem;
-  }
-  .review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.06em; margin-bottom: 1rem; }
-  .review-text {
-    font-size: 0.92rem; line-height: 1.75;
-    color: var(--text-sec); margin-bottom: 1.2rem; font-style: italic;
-  }
-  .review-author { font-size: 0.85rem; font-weight: 500; color: var(--text); }
-  .review-source { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
-  .reviews-cta { text-align: center; margin-top: 2.5rem; }
-  @media (max-width: 900px) { .reviews-grid { grid-template-columns: 1fr; } }
-</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand">Country Roads ATV</a>
+  <a href="index.html" class="nav-brand">Country Roads ATV</a>
   <ul class="nav-links">
-    <li><a href="#trails">Trails</a></li>
+    <li><a href="trails.html">Trail Guide</a></li>
+    <li><a href="tours.html">Guided Tours</a></li>
     <li><a href="#retreat">The Retreat</a></li>
     <li><a href="#amenities">Amenities</a></li>
     <li><a href="#gallery">Photos</a></li>
-    <li><a href="#tours">Guided Tours</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#location">Location</a></li>
     <li><a href="https://checkout.lodgify.com/becky--maynard/355655/reservation?currency=USD&adults=1" target="_blank" rel="noopener" class="nav-cta">Book Now</a></li>
@@ -872,11 +77,11 @@
 </nav>
 
 <div class="nav-mobile" id="navMobile">
-  <a href="#trails">Trails</a>
+  <a href="trails.html">Trail Guide</a>
+  <a href="tours.html">Guided Tours</a>
   <a href="#retreat">The Retreat</a>
   <a href="#amenities">Amenities</a>
   <a href="#gallery">Photos</a>
-  <a href="#tours">Guided Tours</a>
   <a href="#reviews">Reviews</a>
   <a href="#location">Location</a>
   <a href="https://checkout.lodgify.com/becky--maynard/355655/reservation?currency=USD&adults=1" target="_blank" rel="noopener" class="mob-cta">Book Now</a>
@@ -887,7 +92,6 @@
   <div class="hero-bg"></div>
   <div class="hero-texture"></div>
 
-  <!-- Decorative mountain ridge SVG -->
   <div class="hero-ridge">
     <svg viewBox="0 0 1440 200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 200 L0 120 L80 90 L160 130 L240 80 L320 110 L400 60 L480 100 L560 70 L640 110 L720 55 L800 95 L880 65 L960 105 L1040 50 L1120 90 L1200 75 L1280 105 L1360 80 L1440 110 L1440 200 Z" fill="rgba(13,18,16,0.5)"/>
@@ -902,7 +106,7 @@
     <p class="hero-desc">Family-owned retreat nestled in the heart of West Virginia's legendary trail system. Minutes from the trails — no trailering needed.</p>
     <div class="hero-actions">
       <a href="https://checkout.lodgify.com/becky--maynard/355655/reservation?currency=USD&adults=1" target="_blank" rel="noopener" class="btn-primary">Check Availability</a>
-      <a href="#trails" class="btn-outline">See Trail Access</a>
+      <a href="trails.html" class="btn-outline">See the Trail Guide</a>
     </div>
   </div>
 
@@ -928,7 +132,7 @@
   </div>
 </section>
 
-<!-- TRAILS -->
+<!-- TRAILS TEASER -->
 <section id="trails">
   <div class="inner">
     <span class="section-tag reveal">Trail Access</span>
@@ -936,32 +140,35 @@
     <p class="lead reveal">Most ATV rentals make you trailer your machine 30+ minutes to the trailhead. We're right there — literally minutes from three major trail systems.</p>
 
     <div class="trails-grid">
-      <div class="trail-card reveal">
+      <a href="trails.html" class="trail-card reveal">
         <div class="trail-distance">3 min</div>
         <div class="trail-name">Devil Anse Trail 51 &amp; Trail 38</div>
         <div class="trail-detail">Closest access · Ride straight from the driveway</div>
-      </div>
-      <div class="trail-card reveal reveal-delay-1">
+      </a>
+      <a href="trails.html" class="trail-card reveal reveal-delay-1">
         <div class="trail-distance">8 min</div>
         <div class="trail-name">Rockhouse Trails 41 &amp; 42</div>
         <div class="trail-detail">Technical terrain · Scenic ridge views</div>
-      </div>
-      <div class="trail-card reveal reveal-delay-2">
+      </a>
+      <a href="trails.html" class="trail-card reveal reveal-delay-2">
         <div class="trail-distance">12 min</div>
         <div class="trail-name">Buffalo Trail 14</div>
         <div class="trail-detail">Wide open riding · Family-friendly sections</div>
-      </div>
-      <div class="trail-card reveal reveal-delay-3">
-        <div class="trail-distance">5 min</div>
-        <div class="trail-name">Trail Permits &amp; Gas</div>
-        <div class="trail-detail">Dollar General · Permit kiosks · Local fuel nearby</div>
-      </div>
+      </a>
+      <a href="trails.html" class="trail-card reveal reveal-delay-3">
+        <div class="trail-distance">700+</div>
+        <div class="trail-name">Miles of Marked Trail</div>
+        <div class="trail-detail">WV, KY &amp; VA · Permits available 5 min away</div>
+      </a>
       <div class="trails-note reveal">
         <div class="trails-note-icon">🏕️</div>
         <div class="trails-note-text">
-          <strong>No trailering required.</strong> You can ride directly from our highway-accessible property to Devil Anse, Rockhouse, and Buffalo trail systems. The towns of Delbarton (12 min), Gilbert (15 min), and Matewan (15 min) are all accessible by trail too.
+          <strong>No trailering required.</strong> Ride directly from our property to Devil Anse, Rockhouse, and Buffalo trail systems. Towns of Delbarton (12 min), Gilbert (15 min), and Matewan (15 min) are all accessible by trail.
         </div>
       </div>
+    </div>
+    <div class="trails-cta reveal">
+      <a href="trails.html" class="btn-primary">Full Trail Guide →</a>
     </div>
   </div>
 </section>
@@ -1106,16 +313,19 @@
   </div>
 </section>
 
-<!-- TOURS -->
+<!-- TOURS TEASER -->
 <section id="tours">
   <div class="inner">
     <div class="tours-layout">
       <div>
         <span class="tours-badge">Also available</span>
         <h2 class="reveal">Don't know the trails?<br>We'll show you.</h2>
-        <p class="lead reveal" style="margin-bottom: 1.5rem;">Country Roads ATV Tours is our guided riding service — run by born-and-raised Mingo County locals who know every ridge and hollow. Stop watching your GPS and start watching the view.</p>
-        <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 1.5rem;">We cover the Delbarton, Gilbert, Matewan &amp; Williamson areas, with routes weaving through Logan, McDowell, Eastern Kentucky, and beyond. Groups large and small welcome.</p>
-        <a href="https://www.facebook.com/Countryroadsatvretreat/" target="_blank" rel="noopener" class="btn-primary">Book a Tour on Facebook</a>
+        <p class="lead reveal" style="margin-bottom: 1.5rem;">Country Roads ATV Tours is run by born-and-raised Mingo County locals who know every ridge, hollow, and outlaw trail. Stop watching your GPS and start watching the view.</p>
+        <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 2rem;">2024 Coalfield's Best Tour Guide (Dustin Maynard) &amp; Best ATV Tour Company. Covering WV, KY &amp; VA. Groups large and small welcome.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="tours.html" class="btn-primary">Learn More &amp; Book</a>
+          <a href="https://www.facebook.com/Countryroadsatvretreat/" target="_blank" rel="noopener" class="btn-outline">Message on Facebook</a>
+        </div>
       </div>
 
       <div class="tours-card reveal">
@@ -1129,21 +339,7 @@
           <li><span class="check">✓</span> Private groups — no size limit</li>
           <li><span class="check">✓</span> Covers WV, KY &amp; VA riding areas</li>
         </ul>
-        <a href="https://www.facebook.com/Countryroadsatvretreat/" target="_blank" rel="noopener" class="btn-gold">Message Us on Facebook →</a>
-
-        <div class="coverage-area">
-          <div class="coverage-label">Areas covered</div>
-          <div class="coverage-tags">
-            <span class="coverage-tag">Delbarton</span>
-            <span class="coverage-tag">Gilbert</span>
-            <span class="coverage-tag">Matewan</span>
-            <span class="coverage-tag">Williamson</span>
-            <span class="coverage-tag">Logan Co.</span>
-            <span class="coverage-tag">McDowell Co.</span>
-            <span class="coverage-tag">Eastern KY</span>
-            <span class="coverage-tag">Coalwood</span>
-          </div>
-        </div>
+        <a href="tours.html" class="btn-gold">Full Tour Details →</a>
       </div>
     </div>
   </div>
@@ -1253,7 +449,7 @@
   <div class="inner">
     <span class="section-tag" style="color: var(--gold); justify-content: center; display: flex;">Ready to ride?</span>
     <h2 class="reveal">Book the Retreat</h2>
-    <p class="lead reveal">Check availability and book direct through Airbnb, or reach out to us directly on Facebook for questions and tours.</p>
+    <p class="lead reveal">Book direct for best rates, or find us on Airbnb.</p>
 
     <div class="book-options reveal">
       <div class="book-pill"><strong>Sleeps 1–10</strong></div>
@@ -1281,49 +477,15 @@
       <div class="footer-meta" style="margin-top: 0.4rem;">1524 R A W Hwy · Delbarton, WV 25670</div>
     </div>
     <ul class="footer-links">
-      <li><a href="#trails">Trails</a></li>
+      <li><a href="trails.html">Trail Guide</a></li>
+      <li><a href="tours.html">Guided Tours</a></li>
       <li><a href="#retreat">The Retreat</a></li>
-      <li><a href="#tours">Tours</a></li>
       <li><a href="#book">Book Now</a></li>
     </ul>
     <div class="footer-meta">© 2025 Country Roads ATV · All rights reserved</div>
   </div>
 </footer>
 
-<script>
-  // Scroll-reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
-
-  // Nav transparency on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 40 ? '0 2px 24px rgba(0,0,0,0.4)' : 'none';
-  });
-
-  // Mobile nav toggle
-  const toggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('navMobile');
-  toggle.addEventListener('click', () => {
-    const open = toggle.classList.toggle('open');
-    mobileNav.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-  });
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      mobileNav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
+<script src="main.js"></script>
 </body>
 </html>

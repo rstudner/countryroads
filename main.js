@@ -50,3 +50,46 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     a.classList.add('nav-active');
   }
 });
+
+// Analytics — page identifier (distinct from the nav `page` var above)
+const phPage = (function () {
+  const p = window.location.pathname;
+  if (p.includes('trails')) return 'trails';
+  if (p.includes('tours')) return 'tours';
+  return 'index';
+}());
+
+// CTA click tracking
+function _phCTALabel(a) {
+  const href = a.href || '';
+  const text = (a.textContent || '').trim().toLowerCase();
+  if (href.includes('lodgify.com')) return 'book_direct';
+  if (href.includes('airbnb.com')) return text.includes('review') ? 'read_reviews_airbnb' : 'view_airbnb';
+  if (href.includes('facebook.com')) return text.includes('book') ? 'book_tour_facebook' : 'message_facebook';
+  if (href.includes('trails.html')) return 'trail_guide';
+  if (href.includes('tours.html')) return 'guided_tours';
+  if (href.includes('google.com/maps') || href.includes('streetviewpixels')) return 'street_view';
+  return null;
+}
+
+function _phCTALocation(a) {
+  if (a.closest('.nav-mobile')) return 'nav_mobile';
+  if (a.closest('nav')) return 'nav';
+  if (a.closest('footer')) return 'footer';
+  if (a.closest('.cta-section')) return 'cta_bar';
+  const s = a.closest('section[id], section[data-ph-section]');
+  if (s) return s.id || s.dataset.phSection || 'unknown';
+  return 'unknown';
+}
+
+document.addEventListener('click', function (e) {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const label = _phCTALabel(a);
+  if (!label) return;
+  posthog.capture('cta_clicked', {
+    label: label,
+    page: phPage,
+    location: _phCTALocation(a),
+  });
+});

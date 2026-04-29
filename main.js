@@ -65,7 +65,7 @@ function _phCTALabel(a) {
   const text = (a.textContent || '').trim().toLowerCase();
   if (href.includes('lodgify.com')) return 'book_direct';
   if (href.includes('airbnb.com')) return text.includes('review') ? 'read_reviews_airbnb' : 'view_airbnb';
-  if (href.includes('facebook.com')) return text.includes('book') ? 'book_tour_facebook' : 'message_facebook';
+  if (href.includes('facebook.com')) return text.includes('book a tour') ? 'book_tour_facebook' : 'message_facebook';
   if (href.includes('trails.html')) return 'trail_guide';
   if (href.includes('tours.html')) return 'guided_tours';
   if (href.includes('google.com/maps') || href.includes('streetviewpixels')) return 'street_view';

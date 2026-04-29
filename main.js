@@ -93,3 +93,19 @@ document.addEventListener('click', function (e) {
     location: _phCTALocation(a),
   });
 });
+
+// Section visibility tracking
+const _phSectionObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const section = el.id || el.dataset.phSection;
+    if (!section) return;
+    posthog.capture('section_viewed', { section: section, page: phPage });
+    _phSectionObserver.unobserve(el);
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section[id]:not(#home), section[data-ph-section]').forEach(function (el) {
+  _phSectionObserver.observe(el);
+});

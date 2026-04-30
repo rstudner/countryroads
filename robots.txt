@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hatfieldmccoybasecamp.com/sitemap.xml
